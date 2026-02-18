@@ -171,6 +171,6 @@ pip install -r requirements.txt
 All pipeline runs are logged to `logs/rag_queries.jsonl` as structured records containing the query, all retrieved/reranked chunks, the generated answer, model name, prompt version, and token usage.
 
 Evaluation output:
-- `logs/eval_results.jsonl` -- per-query scores (groundedness, citation, failure tags)
-- `logs/eval_results_v2.jsonl` -- enriched with completeness, retrieval recall, context utilization
-- `logs/eval_results_v2.summary.json` -- aggregate statistics
+- `logs/eval_results.summary.json` -- aggregate stats (v1, groundedness and citation only)
+- `logs/eval_results_v2.jsonl` -- per-query scores with completeness, retrieval recall, context utilization
+- `logs/eval_results_v2.summary.json` -- aggregate statistics (v2, all metrics)
