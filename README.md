@@ -137,10 +137,10 @@ Claude Opus 4.6 LLM-as-Judge scored 25 queries across three categories, each run
 **Scoring rubric:** 1-4 scale where 4 = fully correct/complete, 1 = not usable.
 
 Key findings:
-- Groundedness is consistently perfect: the system does not hallucinate beyond retrieved evidence
-- Reranking improves context utilization (0.40 to 0.46), especially for synthesis queries
-- Completeness is the most discriminating metric, varying across query types
-- Edge-case queries show lower retrieval recall (0.67) as expected for out-of-scope topics
+- Groundedness is consistently perfect. The system did not hallucinate beyond retrieved evidence.
+- Reranking improves context utilization (0.40 to 0.46), especially for synthesis queries.
+- Completeness is the most discriminating metric, varying across query types.
+- Edge-case queries show lower retrieval recall (0.67) as expected for out-of-scope topics.
 
 ## Architecture
 
