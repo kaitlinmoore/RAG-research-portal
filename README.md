@@ -35,7 +35,7 @@ pip install -r requirements.txt
 python -m src.rag.query "What are the main failure modes of ML for collision avoidance?"
 ```
 
-> **Note for graders:** A `.env` file with a budget-limited API key is submitted separately (not in the repo). Place it in the repository root directory before running any commands. The pipeline will pick it up automatically.
+> **Note for graders:** A `grader.env` file with a budget-limited API key is submitted separately (not in the repo). Place it in the repository root directory before running any commands. The pipeline will pick it up automatically.
 
 ## What This Does
 
@@ -84,7 +84,6 @@ All papers were manually chunked into structured Markdown following a consistent
 ├── logs/                       # Query logs and evaluation results (JSONL)
 ├── data_manifest.csv           # Corpus metadata (20 sources)
 ├── requirements.txt            # Pinned dependencies
-└── CLAUDE.md                   # Development context for AI-assisted coding
 ```
 
 ## Usage
@@ -131,7 +130,7 @@ python -m src.eval.score_completeness
 
 ## Evaluation Results
 
-25 queries across three categories, each run with and without reranking (50 total). Scored by Claude Opus on four dimensions.
+Claude Opus 4.5 LLM-as-Judge scored 25 queries across three categories, each run with and without reranking (50 total). Retrieval Recall and Contect Utilization were calculated.
 
 | Mode | Groundedness | Citation | Completeness | Retrieval Recall | Context Utilization |
 |------|:---:|:---:|:---:|:---:|:---:|
