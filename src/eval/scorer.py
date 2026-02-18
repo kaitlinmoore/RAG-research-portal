@@ -22,9 +22,12 @@ import re
 from typing import Optional
 
 import anthropic
+from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv()
+_project_root = Path(__file__).resolve().parent.parent.parent
+load_dotenv(_project_root / ".env", override=True)
+load_dotenv(_project_root / "grader.env", override=True)
 
 # ---------------------------------------------------------------------------
 # Scoring prompt template

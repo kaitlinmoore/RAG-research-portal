@@ -26,6 +26,7 @@ try:
     from dotenv import load_dotenv
     _project_root = Path(__file__).resolve().parent.parent.parent
     load_dotenv(_project_root / ".env", override=True)
+    load_dotenv(_project_root / "grader.env", override=True)
 except ImportError:
     pass
 

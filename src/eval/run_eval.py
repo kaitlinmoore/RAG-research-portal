@@ -45,6 +45,7 @@ from dotenv import load_dotenv
 # Load .env from project root (handles cases where cwd differs)
 _project_root = Path(__file__).resolve().parent.parent.parent
 load_dotenv(_project_root / ".env", override=True)
+load_dotenv(_project_root / "grader.env", override=True)
 
 # Add project root to path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))

@@ -24,18 +24,15 @@ python -m venv .venv
 # 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Place the provided .env file in the project root
-#    The file should contain a single line:
-#    ANTHROPIC_API_KEY=sk-ant-...
-#
-#    The pipeline loads this file automatically via python-dotenv.
-#    No other configuration is needed.
+# 3. Place the grader.env file (from Canvas) in the project root
+#    It contains a single line: ANTHROPIC_API_KEY=sk-ant-...
+#    The pipeline loads grader.env automatically — no renaming needed.
 
 # 4. Ask a question (retrieves, reranks, generates, logs — one command)
 python -m src.rag.query "What are the main failure modes of ML for collision avoidance?"
 ```
 
-> **Note for graders:** A `grader.env` file with a budget-limited API key is submitted separately (not in the repo). Place it in the repository root directory before running any commands. The pipeline will pick it up automatically.
+> **Note for graders:** Download `grader.env` from Canvas and place it in the repository root directory (next to `README.md`). The pipeline loads it automatically — no renaming or environment variable setup required.
 
 ## What This Does
 
@@ -130,7 +127,7 @@ python -m src.eval.score_completeness
 
 ## Evaluation Results
 
-Claude Opus 4.6 LLM-as-Judge scored 25 queries across three categories, each run with and without reranking (50 total). Retrieval Recall and Contect Utilization were calculated.
+Claude Opus 4.6 LLM-as-Judge scored 25 queries across three categories, each run with and without reranking (50 total). Retrieval Recall and Context Utilization were calculated.
 
 | Mode | Groundedness | Citation | Completeness | Retrieval Recall | Context Utilization |
 |------|:---:|:---:|:---:|:---:|:---:|

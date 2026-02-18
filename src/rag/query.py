@@ -26,6 +26,7 @@ sys.path.insert(0, str(_PROJECT_ROOT))
 # Load .env file (so ANTHROPIC_API_KEY is available to generator.py)
 from dotenv import load_dotenv
 load_dotenv(_PROJECT_ROOT / ".env", override=True)
+load_dotenv(_PROJECT_ROOT / "grader.env", override=True)
 
 from src.rag.pipeline import run_query
 
