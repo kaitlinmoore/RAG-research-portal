@@ -130,7 +130,7 @@ python -m src.eval.score_completeness
 
 ## Evaluation Results
 
-Claude Opus 4.5 LLM-as-Judge scored 25 queries across three categories, each run with and without reranking (50 total). Retrieval Recall and Contect Utilization were calculated.
+Claude Opus 4.6 LLM-as-Judge scored 25 queries across three categories, each run with and without reranking (50 total). Retrieval Recall and Contect Utilization were calculated.
 
 | Mode | Groundedness | Citation | Completeness | Retrieval Recall | Context Utilization |
 |------|:---:|:---:|:---:|:---:|:---:|
