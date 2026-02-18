@@ -32,7 +32,7 @@ pip install -r requirements.txt
 python -m src.rag.query "What are the main failure modes of ML for collision avoidance?"
 ```
 
-> **Note for graders:** Download `grader.env` from Canvas and place it in the repository root directory (next to `README.md`). The pipeline loads it automatically — no renaming or environment variable setup required.
+> **Note for graders:** Download `grader.env` from Canvas and place it in the repository root directory (next to `README.md`). The pipeline loads it automatically. No renaming or environment variable setup required.
 
 ## What This Does
 
