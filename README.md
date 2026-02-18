@@ -149,8 +149,8 @@ Key findings:
 | Vector store | ChromaDB | Metadata filtering support for Phase 3 portal |
 | Embeddings | `all-mpnet-base-v2` | Best quality for small academic corpora; 768-dim, cosine similarity |
 | Reranker | `ms-marco-MiniLM-L-6-v2` | Cross-encoder reranking as measurable Phase 2 enhancement |
-| Generator | Claude Sonnet (Anthropic API) | Cost-effective for iterative evaluation runs |
-| Judge | Claude Opus | Stronger model judges weaker to reduce shared-bias |
+| Generator | Claude Sonnet 4.5 (Anthropic API) | Cost-effective for iterative evaluation runs |
+| Judge | Claude Opus 4.6 | Stronger model judges weaker to reduce shared-bias |
 | Chunking | Manual with structured IDs | Image-based PDFs made automated extraction unreliable |
 
 ## Dependencies
