@@ -1,6 +1,7 @@
 # Secrets
 .env
 .env.*
+grader.env
 
 # ChromaDB vector store (large, generated)
 data/chromadb/
