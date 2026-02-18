@@ -24,8 +24,8 @@ python -m venv .venv
 # 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Place the grader.env file (from Canvas) in the project root
-#    It contains a single line: ANTHROPIC_API_KEY=sk-ant-...
+# 3. Place the grader.env file (from Canvas) in the project root.
+#    It contains a single line: ANTHROPIC_API_KEY={API KEY}.
 #    The pipeline loads grader.env automatically — no renaming needed.
 
 # 4. Ask a question (retrieves, reranks, generates, logs — one command)
