@@ -142,6 +142,8 @@ Key findings:
 - Completeness is the most discriminating metric, varying across query types.
 - Edge-case queries show lower retrieval recall (0.67) as expected for out-of-scope topics.
 
+The full evaluation report (query set design, metrics, results, and failure analysis) is located at [`report/PRP Phase 2 Evaluation Report - Kaitlin Moore.pdf`](report/PRP%20Phase%202%20Evaluation%20Report%20-%20Kaitlin%20Moore.pdf).
+
 ## Architecture
 
 | Component | Choice | Rationale |
