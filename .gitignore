@@ -1,0 +1,24 @@
+# Secrets
+.env
+.env.*
+
+# ChromaDB vector store (large, generated)
+data/chromadb/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

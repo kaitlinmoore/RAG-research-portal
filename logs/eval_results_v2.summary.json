@@ -1,0 +1,90 @@
+{
+  "total_runs": 50,
+  "modes": {
+    "rerank": {
+      "n": 25,
+      "by_category": {
+        "direct": {
+          "n": 12,
+          "avg_groundedness": 4.0,
+          "avg_citation": 4.0,
+          "avg_retrieval_recall": 0.88,
+          "n_retrieval_recall": 12,
+          "avg_context_utilization": 0.38,
+          "avg_completeness": 3.75
+        },
+        "synthesis": {
+          "n": 7,
+          "avg_groundedness": 4.0,
+          "avg_citation": 4.0,
+          "avg_retrieval_recall": 0.89,
+          "n_retrieval_recall": 7,
+          "avg_context_utilization": 0.64,
+          "avg_completeness": 3.57
+        },
+        "edge_case": {
+          "n": 6,
+          "avg_groundedness": 4.0,
+          "avg_citation": 3.83,
+          "avg_retrieval_recall": 0.67,
+          "n_retrieval_recall": 4,
+          "avg_context_utilization": 0.38,
+          "avg_completeness": 3.83
+        }
+      },
+      "overall": {
+        "avg_groundedness": 4.0,
+        "avg_citation": 3.96,
+        "avg_retrieval_recall": 0.84,
+        "avg_context_utilization": 0.46,
+        "avg_completeness": 3.72
+      }
+    },
+    "baseline": {
+      "n": 25,
+      "by_category": {
+        "direct": {
+          "n": 12,
+          "avg_groundedness": 4.0,
+          "avg_citation": 4.0,
+          "avg_retrieval_recall": 0.88,
+          "n_retrieval_recall": 12,
+          "avg_context_utilization": 0.3,
+          "avg_completeness": 3.75
+        },
+        "synthesis": {
+          "n": 7,
+          "avg_groundedness": 4.0,
+          "avg_citation": 4.0,
+          "avg_retrieval_recall": 0.89,
+          "n_retrieval_recall": 7,
+          "avg_context_utilization": 0.57,
+          "avg_completeness": 3.57
+        },
+        "edge_case": {
+          "n": 6,
+          "avg_groundedness": 4.0,
+          "avg_citation": 4.0,
+          "avg_retrieval_recall": 0.67,
+          "n_retrieval_recall": 4,
+          "avg_context_utilization": 0.4,
+          "avg_completeness": 3.67
+        }
+      },
+      "overall": {
+        "avg_groundedness": 4.0,
+        "avg_citation": 4.0,
+        "avg_retrieval_recall": 0.84,
+        "avg_context_utilization": 0.4,
+        "avg_completeness": 3.68
+      }
+    }
+  },
+  "run_date": "2026-02-17T08:05:11.437959+00:00",
+  "source_file": "logs/eval_results.jsonl",
+  "judge_model": "claude-opus-4-6",
+  "completeness_judge_tokens": {
+    "input": 71413,
+    "output": 6419
+  }
+}

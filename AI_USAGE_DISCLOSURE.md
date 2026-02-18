@@ -1,0 +1,18 @@
+# AI Usage Disclosure
+
+**Student:** Kaitlin Moore (kmoore2)
+**Course:** AI Model Development, CMU
+
+---
+
+| Tool | What I Used It For | What I Changed Manually |
+|------|-------------------|------------------------|
+| **Claude Opus 4.6** (claude.ai) | **Corpus chunking.** Claude read each of the 20 source PDFs and produced section-aware chunked markdown files following my CHUNKING_PROTOCOL.md and CHUNKING_PLAYBOOK.md (for longer files needing batch processing). This was a directed process. I provided the protocol, reviewed outputs, and corrected errors across multiple sessions. | Reviewed all 20 chunked files for accuracy. Corrected encoding issues (garbled em-dashes, accented characters). Verified chunk IDs and section structure matched source documents. Replaced kessler1978 with liou2008 after evaluating fit. |
+| **Claude Opus 4.6** (claude.ai) | **Pipeline architecture and code drafting.** Claude drafted initial versions of pipeline modules (parser.py, ingest.py, retriever.py, reranker.py, generator.py, prompts.py, logger.py, pipeline.py, query.py) and the evaluation runner (run_eval.py, scorer.py) based on my specifications. | Reviewed all code before committing. Adjusted pipeline interfaces for compatibility. Tested and debugged integration issues. Made architecture decisions (ChromaDB over FAISS, embedding model selection, reranker choice, scoring rubric design). All design decisions were mine; Claude implemented them. |
+| **Claude Opus 4.6** (claude.ai) | **Evaluation query design.** Claude helped draft the 25-query evaluation set (queries.json) based on my research sub-questions and corpus knowledge. | Selected which queries to include, assigned categories and expected sources, and verified coverage across all six sub-questions and 20 sources. Revised query wording for specificity. |
+| **Claude Opus 4.6** (claude.ai) | **Report drafting assistance.** Claude provided feedback on the Phase 2 report draft, identified data inconsistencies, and suggested structural improvements. | Wrote the report. Used Claude for fact-checking claims against eval data (verified table values, failure case scores, retrieval positions). All analysis and interpretation is my own. |
+| **Claude Sonnet 4.5** (Anthropic API) | **RAG generation model.** The pipeline uses Sonnet as the default generation model, producing citation-grounded answers from retrieved chunks. | Configured via pipeline; outputs are the system's responses being evaluated, not my writing. |
+| **Claude Opus 4.6** (Anthropic API) | **LLM-as-judge evaluation.** Opus scored all 50 evaluation runs on groundedness, citation correctness, and answer completeness. | Manually verified 6 judge scores against retrieved chunks and answers to confirm calibration. Identified judge leniency on groundedness/citation metrics, which motivated adding the completeness metric. |
+| **Claude Code** (Desktop)| **Repository setup, debugging, and README.** Used for file organization, running the ingest pipeline, executing evaluation runs, fixing integration issues between modules, and drafting the README.md. | Directed all tasks. Approved (or denied) all suggested actions. Reviewed and edited the README for accuracy. Reviewed outputs and commits. |
+| **Claude Opus 4.6** (claude.ai) | **AI usage disclosure.** This document was drafted with Claude's assistance based on the full history of our project conversations. | Reviewed for accuracy and completeness. Added missing items and corrected details to match my actual workflow. |
+| **DARE** (CMU LLM Gateway) | **Phase 1 evaluation runs.** Used Claude Opus, GPT o3-mini, and Gemini 3 Pro through DARE's web interface for the Phase 1 prompt evaluation (24 runs). | Scored all outputs manually using the Phase 1 rubric. |

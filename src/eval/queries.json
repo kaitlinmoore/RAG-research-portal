@@ -1,0 +1,215 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "description": "Evaluation query set for space debris ML failure modes RAG pipeline",
+    "research_question": "What are the key failure modes and limitations of ML systems for space debris tracking and collision avoidance?",
+    "total_queries": 25,
+    "categories": {
+      "direct": 12,
+      "synthesis": 7,
+      "edge_case": 6
+    }
+  },
+  "queries": [
+    {
+      "id": "D01",
+      "category": "direct",
+      "sub_question": 2,
+      "query": "What is the class imbalance ratio between high-risk and low-risk conjunction events in the ESA CDM dataset?",
+      "expected_sources": ["catulo2023", "uriot2022"],
+      "notes": "catulo2023 sec3.1_p3 gives 97.23% low-risk vs 2.77% high-risk. uriot2022 sec3_p4 gives event counts."
+    },
+    {
+      "id": "D02",
+      "category": "direct",
+      "sub_question": 4,
+      "query": "What uncertainty quantification techniques does Licata 2022 compare for thermospheric density modeling?",
+      "expected_sources": ["licata2022"],
+      "notes": "MC dropout vs direct probability distribution prediction, both using NLPD loss. licata2022 sec0_p2, sec5.4_p1."
+    },
+    {
+      "id": "D03",
+      "category": "direct",
+      "sub_question": 5,
+      "query": "What did NASA CARA conclude about the operational viability of ML for conjunction assessment?",
+      "expected_sources": ["mashiku2025"],
+      "notes": "mashiku2025 sec5.3 concludes ML has not shown operational promise. sec6_p1-p4 cover future directions."
+    },
+    {
+      "id": "D04",
+      "category": "direct",
+      "sub_question": 3,
+      "query": "What are the three types of ML generalization for orbit prediction defined by Peng and Bai?",
+      "expected_sources": ["peng2018", "precise_orbit_ml2024"],
+      "notes": "peng2018 sec3_p1 defines Type I/II/III. precise_orbit_ml2024 sec1.1_p1 also references them."
+    },
+    {
+      "id": "D05",
+      "category": "direct",
+      "sub_question": 3,
+      "query": "How does catastrophic forgetting affect ML models for orbit decay prediction, and what technique does He 2024 use to address it?",
+      "expected_sources": ["he2024"],
+      "notes": "he2024 sec0_p1 and sec1_p6-p7 cover EWC (elastic weight consolidation) for continual learning."
+    },
+    {
+      "id": "D06",
+      "category": "direct",
+      "sub_question": 1,
+      "query": "What ML architecture does the Kessler library use for predicting conjunction event evolution?",
+      "expected_sources": ["acciarini2021"],
+      "notes": "Bayesian LSTM with MC dropout. acciarini2021 sec3.1_p2, sec1_p8."
+    },
+    {
+      "id": "D07",
+      "category": "direct",
+      "sub_question": 2,
+      "query": "What data quality issues were found in the ESA conjunction data messages used for the Collision Avoidance Challenge?",
+      "expected_sources": ["catulo2023", "uriot2022"],
+      "notes": "catulo2023 sec3.1_p4 documents negative ballistic coefficients, physically impossible values. uriot2022 sec3_p1 covers anonymization."
+    },
+    {
+      "id": "D08",
+      "category": "direct",
+      "sub_question": 1,
+      "query": "What classification accuracy did AlDahoul 2022 achieve for spacecraft and debris recognition using RGB-D data?",
+      "expected_sources": ["aldahoul2022"],
+      "notes": "85% accuracy per manifest relevance note. Should retrieve specific results sections."
+    },
+    {
+      "id": "D09",
+      "category": "direct",
+      "sub_question": 6,
+      "query": "According to the Liou 2008 study, what percentage of Monte Carlo simulations predicted LEO population growth even without new launches?",
+      "expected_sources": ["liou2008"],
+      "notes": "liou2008 sec3_p6: 127 out of 150 runs (~85%) predict growth. Key for validating rare-event concern."
+    },
+    {
+      "id": "D10",
+      "category": "direct",
+      "sub_question": 2,
+      "query": "How many objects larger than 1 cm are estimated to be in Earth orbit according to the ESA Space Environment Report?",
+      "expected_sources": ["esa_environment2025"],
+      "notes": "ESA reports 1M+ objects >1cm. Tests retrieval from technical report."
+    },
+    {
+      "id": "D11",
+      "category": "direct",
+      "sub_question": 5,
+      "query": "What operational challenges does NASA identify for integrating ML into conjunction assessment workflows?",
+      "expected_sources": ["newman2022", "nasa_ca_handbook2023"],
+      "notes": "newman2022 covers TLE limitations, trackability. nasa_ca_handbook2023 covers decision frameworks."
+    },
+    {
+      "id": "D12",
+      "category": "direct",
+      "sub_question": 1,
+      "query": "What ML approaches has MOCAT used to predict space object density distributions, and what challenges did they encounter with long-term forecasting?",
+      "expected_sources": ["mocat_ml2024"],
+      "notes": "Autoencoders, RNNs, transformers. Challenges with generalization and artifact generation."
+    },
+    {
+      "id": "S01",
+      "category": "synthesis",
+      "sub_question": 2,
+      "query": "Across the corpus, what evidence exists that class imbalance is a fundamental barrier to ML for collision avoidance, and what solutions have been proposed?",
+      "expected_sources": ["catulo2023", "uriot2022", "mashiku2025", "acciarini2021"],
+      "notes": "Cross-paper theme. catulo gives stats, uriot documents competition challenges, mashiku gives NASA assessment, acciarini frames the generative modeling alternative."
+    },
+    {
+      "id": "S02",
+      "category": "synthesis",
+      "sub_question": 4,
+      "query": "Compare the uncertainty quantification approaches used across the corpus. Which methods show the most promise for operational deployment?",
+      "expected_sources": ["licata2022", "vanslette2024", "acciarini2021", "catulo2023"],
+      "notes": "licata: MC dropout vs direct probability. vanslette: uncertainty-aware DNNs. acciarini: Bayesian LSTM. catulo: HMM-based."
+    },
+    {
+      "id": "S03",
+      "category": "synthesis",
+      "sub_question": 3,
+      "query": "What evidence exists across the corpus that ML models for orbit prediction fail to generalize across different spacecraft or orbital regimes?",
+      "expected_sources": ["peng2018", "precise_orbit_ml2024", "he2024", "survey_ml_orbit2024"],
+      "notes": "peng2018 Type III generalization gap. precise_orbit_ml2024 exogenous variables. he2024 catastrophic forgetting. survey_ml_orbit2024 reviews the field."
+    },
+    {
+      "id": "S04",
+      "category": "synthesis",
+      "sub_question": 5,
+      "query": "What are the common reasons cited across NASA, ESA, and RAND sources for why ML has not yet achieved operational status in space debris tracking?",
+      "expected_sources": ["mashiku2025", "nasa_ca_handbook2023", "rand_ai_ssa2024", "newman2022"],
+      "notes": "Institutional perspective synthesis. mashiku: data/explainability. rand: operator trust. newman: operational gaps. nasa_handbook: decision frameworks."
+    },
+    {
+      "id": "S05",
+      "category": "synthesis",
+      "sub_question": 6,
+      "query": "How does the extreme rarity of actual collision events affect both ML model training and validation across the studies in this corpus?",
+      "expected_sources": ["mashiku2025", "uriot2022", "catulo2023", "liou2008"],
+      "notes": "Connects class imbalance (training) with validation impossibility (no ground truth collisions). liou2008 provides physical context."
+    },
+    {
+      "id": "S06",
+      "category": "synthesis",
+      "sub_question": 2,
+      "query": "How does atmospheric drag uncertainty propagate through ML-based orbit prediction pipelines, and what are the downstream effects on collision probability estimates?",
+      "expected_sources": ["licata2022", "precise_orbit_ml2024", "survey_ml_orbit2024", "he2024"],
+      "notes": "Connects thermospheric density UQ to orbit prediction to CA decision-making."
+    },
+    {
+      "id": "S07",
+      "category": "synthesis",
+      "sub_question": 1,
+      "query": "What ML architectures have been applied to the CDM time-series prediction problem, and how do their failure modes compare?",
+      "expected_sources": ["acciarini2021", "catulo2023", "uriot2022", "mashiku2025"],
+      "notes": "acciarini: Bayesian LSTM. catulo: HMM. uriot: competition approaches. mashiku: DNN/LSTM evaluation."
+    },
+    {
+      "id": "E01",
+      "category": "edge_case",
+      "sub_question": null,
+      "query": "What does the corpus say about using reinforcement learning for autonomous collision avoidance maneuver planning?",
+      "expected_sources": [],
+      "notes": "Out of scope — RL for maneuver planning is not covered in the corpus. System should say evidence is insufficient."
+    },
+    {
+      "id": "E02",
+      "category": "edge_case",
+      "sub_question": null,
+      "query": "Has any ML system been deployed operationally for real-time collision avoidance decision-making?",
+      "expected_sources": ["mashiku2025", "rand_ai_ssa2024"],
+      "notes": "Trick question — the answer is essentially no. mashiku2025 explicitly concludes ML has not shown operational promise. System should state this clearly."
+    },
+    {
+      "id": "E03",
+      "category": "edge_case",
+      "sub_question": null,
+      "query": "What are the computational costs of running ML inference for conjunction assessment compared to traditional methods?",
+      "expected_sources": ["vanslette2024", "licata2022"],
+      "notes": "Partially answerable. vanslette mentions 1000x speedup. licata has runtime comparisons. But full CA pipeline comparison is not in corpus."
+    },
+    {
+      "id": "E04",
+      "category": "edge_case",
+      "sub_question": null,
+      "query": "What role does quantum computing play in improving space debris tracking?",
+      "expected_sources": [],
+      "notes": "Completely out of scope. No corpus coverage. System must clearly state no evidence found."
+    },
+    {
+      "id": "E05",
+      "category": "edge_case",
+      "sub_question": null,
+      "query": "Which single ML approach is best for collision avoidance?",
+      "expected_sources": ["mashiku2025", "uriot2022", "survey_ml_orbit2024"],
+      "notes": "Deliberately oversimplified question. A good answer should push back — the corpus shows no single best approach and highlights that the answer depends on the specific sub-task."
+    },
+    {
+      "id": "E06",
+      "category": "edge_case",
+      "sub_question": null,
+      "query": "Does the corpus contain evidence that deep learning outperforms traditional statistical methods for conjunction assessment?",
+      "expected_sources": ["mashiku2025", "uriot2022", "catulo2023"],
+      "notes": "Tests the explicit claim-checking behavior. mashiku2025 actually concludes the opposite — ML has NOT outperformed traditional methods operationally."
+    }
+  ]
+}

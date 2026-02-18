@@ -1,0 +1,21 @@
+{
+  "run_date": "2026-02-17T06:55:15.642673+00:00",
+  "total_queries": 25,
+  "total_runs": 50,
+  "errors": 0,
+  "modes": [
+    "rerank",
+    "baseline"
+  ],
+  "judge_model": "claude-opus-4-6",
+  "rerank": {
+    "n": 25,
+    "avg_groundedness": 4.0,
+    "avg_citation": 3.96
+  },
+  "baseline": {
+    "n": 25,
+    "avg_groundedness": 4.0,
+    "avg_citation": 4.0
+  }
+}
