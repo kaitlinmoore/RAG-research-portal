@@ -20,7 +20,9 @@ _project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 if _project_root not in sys.path:
     sys.path.insert(0, _project_root)
 
-load_dotenv()
+# Load .env first (developer key takes priority), then grader.env as fallback.
+load_dotenv(os.path.join(_project_root, ".env"))
+load_dotenv(os.path.join(_project_root, "grader.env"))
 
 from src.cache.manager import CacheManager
 from src.rag.pipeline import RAGPipeline

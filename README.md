@@ -8,6 +8,8 @@ A research-grade Retrieval-Augmented Generation (RAG) pipeline for exploring ML 
 
 ## Quick Start
 
+> **Just want to explore?** The Phase 3 portal works immediately without an API key — pre-cached results are shipped with the repo. Run `streamlit run src/app/Ask_Questions.py` and skip to [Offline / Demo Mode](#offline--demo-mode).
+
 ### Prerequisites
 
 - Python 3.10+
@@ -65,6 +67,13 @@ python -m scripts.seed_cache
 ```
 
 This caches 12 queries (7 unfiltered + 5 with metadata filters), 3 research threads, and 6 artifacts (evidence tables + synthesis memos).
+
+**What to try in offline mode:**
+
+1. **Ask Questions** -- Paste any of the pre-cached queries (e.g., *"What are the main failure modes of ML for collision avoidance?"*) to see a full answer with citation cards and gap suggestions.
+2. **Threads** -- Navigate to the Threads page and select any of the 3 saved threads. Click "Generate Evidence Table" or "Generate Synthesis Memo" -- both are pre-cached and load instantly without an API key.
+3. **Evaluation** -- The dashboard is fully offline by default.
+4. **About** -- Corpus details, architecture, and tag scheme documentation.
 
 ## What This Does
 

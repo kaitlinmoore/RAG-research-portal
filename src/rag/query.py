@@ -23,10 +23,11 @@ from pathlib import Path
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(_PROJECT_ROOT))
 
-# Load .env file (so ANTHROPIC_API_KEY is available to generator.py)
+# Load .env first (developer key takes priority), then grader.env as fallback.
+# override=False (default) means earlier-loaded values are not overwritten.
 from dotenv import load_dotenv
-load_dotenv(_PROJECT_ROOT / ".env", override=True)
-load_dotenv(_PROJECT_ROOT / "grader.env", override=True)
+load_dotenv(_PROJECT_ROOT / ".env")
+load_dotenv(_PROJECT_ROOT / "grader.env")
 
 from src.rag.pipeline import run_query
 
