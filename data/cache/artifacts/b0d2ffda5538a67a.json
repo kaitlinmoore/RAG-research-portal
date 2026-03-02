@@ -1,0 +1,121 @@
+{
+  "type": "evidence_table",
+  "rows": [
+    {
+      "claim": "Class imbalance is explicitly identified as a shortcoming of discriminative binary-classification approaches for ML in collision avoidance.",
+      "evidence": "approaching the spacecraft collision avoidance problem as discriminative binary-classification formulation in ML (i.e., high- vs low-risk events) has various shortcomings (e.g., training data class imbalance, scarce interpretability of the output)",
+      "source_id": "acciarini2021",
+      "chunk_id": "sec3.1_p1",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "The dataset used in the ESA Spacecraft Collision Avoidance Challenge is described as highly unbalanced, with training and test sets not randomly sampled.",
+      "evidence": "the dataset for the collision avoidance challenge is highly unbalanced, with the training and test sets not randomly sampled from the dataset",
+      "source_id": "uriot2022",
+      "chunk_id": "sec5.1_p3",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "Only a very small percentage of events have a final risk higher than −6, creating extreme imbalance.",
+      "evidence": "the dataset is extremely imbalanced with only a very small percentage of the events having a final risk higher than −6",
+      "source_id": "catulo2023",
+      "chunk_id": "sec3.3_p1",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "Several challenges mostly derived from the unavoidable unbalanced nature of the dataset had to be accounted for when releasing the dataset as a competition.",
+      "evidence": "Several challenges, mostly derived from the unavoidable unbalanced nature of the dataset, had to be accounted for to release the dataset in the form of a competition and the use of automated, off-the-shelf ML pipelines were limited",
+      "source_id": "uriot2022",
+      "chunk_id": "sec7_p1",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "Half of the participants reported attempting to build validation sets with similar properties and risk distribution as the test set but failed, with most teams reporting poor correlation between training and test set performances.",
+      "evidence": "half of the participants reported attempting to build a validation set with similar properties and risk distribution as the test set, albeit failing since most surveyed teams lamented a poor correlation between training and test set performances",
+      "source_id": "uriot2022",
+      "chunk_id": "sec5.1_p3",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "ML models can improve upon naive forecasting benchmarks, hinting at the possibility of using ML to improve the decision-making process in collision avoidance systems.",
+      "evidence": "naive forecasting models have surprisingly good performances and thus are established as an unavoidable benchmark for any future work in this subject; on the other hand, ML models can improve upon such a benchmark, hinting at the possibility of using ML to improve the decision-making process in collision avoidance systems",
+      "source_id": "uriot2022",
+      "chunk_id": "sec7_p1",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "Researchers pivoted to generative modeling approaches that describe the temporal evolution of a sequence of CDMs given all previously observed CDMs as a solution to class imbalance.",
+      "evidence": "we focus our attention on the generative modeling of the problem, in other words we would like to deliver ML methods that describe the temporal evolution of a sequence of CDMs given all previously observed CDMs",
+      "source_id": "acciarini2021",
+      "chunk_id": "sec3.1_p1",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "A majority (65%) of challenge participants reported explicitly attempting to address class imbalance through methods such as artificially balancing classes or assigning importance weighting to samples.",
+      "evidence": "A total of 65% of the participants answered positively [to the question 'Did you apply any approach to compensate for the imbalances in the dataset?' regarding artificially balancing the classes, assigning importance weighing to samples]",
+      "source_id": "uriot2022",
+      "chunk_id": "sec5.1_p3",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "Strategic data filtering using naive forecast predictions can remove low-risk events when the naive forecast predicts −30, with 99.34% accuracy without misclassifying high-risk events.",
+      "evidence": "when the naive forecast predicts the final risk value of an event as −30 (the risk values are truncated at that lower bound), 99.34% of the predictions are correct without any misclassification of high-risk events (after the removal of CDMs containing extreme outliers and parameters with impossible values)",
+      "source_id": "catulo2023",
+      "chunk_id": "sec3.3_p1",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "Removing events predicted as −30 by naive forecast significantly reduces the volume of low-risk conjunctions, helping address data imbalance while reducing memory requirements and computational time.",
+      "evidence": "those events are not used for training and, during the test phase, are directly predicted with a final risk of −30. With this approach, a significant amount of low-risk conjunctions are removed, which can help deal with the data imbalance problem, and the volume of training data is reduced, resulting in lower memory requirements and a lower computational time",
+      "source_id": "catulo2023",
+      "chunk_id": "sec3.3_p1",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "Future research directions suggest investigating RNNs and LSTM models to ingest time-series based information for more reliable predictions.",
+      "evidence": "investigating Recurring Neural Networks (RNNs) and LSTM models to ingest time-series based information could eventually provide more reliable predictions at TCA, especially if approaches can be developed that incorporate uncertainty quantification in the predictions",
+      "source_id": "mashiku2025",
+      "chunk_id": "sec6_p1",
+      "confidence": "medium",
+      "notes": "This is a future research suggestion rather than a demonstrated solution. The chunk also notes significant caveats about uncertainty quantification."
+    },
+    {
+      "claim": "AI/ML approaches have not yet demonstrated sufficient reliability for operational collision avoidance decision making.",
+      "evidence": "AI/ML approaches investigated to date have not yet demonstrated sufficient reliability for operational collision avoidance decision making",
+      "source_id": "mashiku2025",
+      "chunk_id": "sec6_p1",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "Critical limitations include the difficulty of deterministically modeling future measurement updates and routine operational maneuvers, which must be addressed by any AI/ML approach for operational viability.",
+      "evidence": "predictions of future measurement updates are nearly impossible to model deterministically since they are not entirely physics-based, and that routine maneuvers as part of normal operations are difficult or impossible to model or incorporate within a model. These critical limitations must be addressed by any AI/ML approach for it to be operationally viable",
+      "source_id": "mashiku2025",
+      "chunk_id": "sec6_p1",
+      "confidence": "high",
+      "notes": ""
+    }
+  ],
+  "validation": {
+    "valid": true,
+    "issues": [],
+    "row_count": 13
+  },
+  "metadata": {
+    "thread_id": "seed_thread_02",
+    "generated_at": "2026-03-02T08:47:03.690175+00:00",
+    "model": "claude-sonnet-4-5-20250929"
+  },
+  "cache_key": "b0d2ffda5538a67a",
+  "cached_at": "2026-03-02T08:47:03.690192+00:00"
+}

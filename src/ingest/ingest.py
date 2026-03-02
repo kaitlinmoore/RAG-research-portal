@@ -27,7 +27,48 @@ ChromaDB metadata schema per chunk:
     - doc_type:       str   e.g. 'peer-reviewed'
     - venue:          str   e.g. 'Acta Astronautica'
     - authors:        str   e.g. 'Giacomo Acciarini, Francesco Pinto, ...'
+    - tags:           str   e.g. 'collision-avoidance; data-quality' (display only)
+    - tag_collision_avoidance:        bool
+    - tag_orbit_prediction:           bool
+    - tag_debris_environment:         bool
+    - tag_detection_classification:   bool
+    - tag_data_quality:               bool
+    - tag_generalization:             bool
+    - tag_uncertainty_quantification: bool
+    - tag_operational_integration:    bool
+    - tag_survey:                     bool
+    - tag_benchmark:                  bool
+    - tag_policy:                     bool
 '''
+
+# All 11 tags — used to generate boolean metadata fields from the
+# semicolon-separated tags string in the manifest.
+ALL_TAGS = [
+    "collision-avoidance",
+    "orbit-prediction",
+    "debris-environment",
+    "detection-classification",
+    "data-quality",
+    "generalization",
+    "uncertainty-quantification",
+    "operational-integration",
+    "survey",
+    "benchmark",
+    "policy",
+]
+
+
+def _tag_booleans(tags_str: str) -> dict[str, bool]:
+    """Convert a semicolon-separated tags string to boolean fields.
+
+    E.g. "collision-avoidance; data-quality" →
+         {"tag_collision_avoidance": True, "tag_data_quality": True, ...rest False}
+    """
+    present = {t.strip() for t in tags_str.split(";") if t.strip()}
+    return {
+        f"tag_{tag.replace('-', '_')}": (tag in present)
+        for tag in ALL_TAGS
+    }
 
 import argparse
 import sys
@@ -146,7 +187,8 @@ def ingest(
         composite_id = build_composite_id(chunk['source_id'], chunk['chunk_id'])
         ids.append(composite_id)
         documents.append(chunk['text'])
-        metadatas.append({
+        tags_str = chunk.get('tags', '')
+        meta = {
             'source_id': chunk['source_id'],
             'chunk_id': chunk['chunk_id'],
             'section_id': chunk['section_id'],
@@ -155,7 +197,10 @@ def ingest(
             'doc_type': chunk['doc_type'],
             'venue': chunk['venue'],
             'authors': chunk['authors'],
-        })
+            'tags': tags_str,
+        }
+        meta.update(_tag_booleans(tags_str))
+        metadatas.append(meta)
     
     # Upsert in batches.
     total = len(ids)

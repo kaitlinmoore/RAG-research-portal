@@ -1,0 +1,129 @@
+{
+  "type": "evidence_table",
+  "rows": [
+    {
+      "claim": "BNNs perform predictions by sampling from the posterior distribution of model parameters, yielding multiple predictions that correspond to different sets of sampled weight and bias values.",
+      "evidence": "To make predictions for a new input data point, the BNN performs a prediction by sampling from the posterior distribution of the underlying model parameters. This process yields multiple predictions, each corresponding to a different set of sampled weight and bias values.",
+      "source_id": "rand_ai_ssa2024",
+      "chunk_id": "sec2.3.2_p3",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "The uncertainty in BNN predictions arises directly from the uncertainty in parameter samples, with wider posterior distributions indicating higher uncertainty and narrower distributions indicating lower uncertainty.",
+      "evidence": "The uncertainty in the predictions arises from the uncertainty in the parameter samples. One of the primary advantages of BNNs is their ability to provide uncertainty estimates along with their predictions. This uncertainty quantification can be used to assess the model's confidence in its predictions. For instance, a wider posterior distribution indicates higher uncertainty, whereas a narrower distribution indicates lower uncertainty.",
+      "source_id": "rand_ai_ssa2024",
+      "chunk_id": "sec2.3.2_p3",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "Calibration-based uncertainty assessment measures the reliability of uncertainty estimates by comparing expected versus observed cumulative probabilities across prediction intervals.",
+      "evidence": "The calibration error score is given as [Equation 8: calibration error as the average absolute difference between expected and observed cumulative probability across all prediction intervals and model outputs, expressed as a percentage]",
+      "source_id": "licata2022",
+      "chunk_id": "sec5.5_p1",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "Uncertainty values in orbital parameters (such as radial velocity uncertainty) were generally higher for misclassified events, suggesting potential value in building models that account for these uncertainties at inference time.",
+      "evidence": "The uncertainty values were generally higher for misclassified events. Note that many more uncertainty attributes were recorded in the dataset, and Fig. 13 shows only one of them. Higher uncertainties for the misclassified events suggests that there may be value in building a model which takes these uncertainties into account at inference time, for instance, by outputting a risk distribution instead of a point prediction.",
+      "source_id": "uriot2022",
+      "chunk_id": "sec5.4_p2",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "Better prediction and classification performance was observed when using methods that account for uncertainty quantification compared with SNN approaches, though this is not a universal statement.",
+      "evidence": "Quantification of risk and uncertainty tolerance can support improved performance of AI/ML tools focused on prediction and classification when compared with SNN approaches. In both case studies better prediction and classification performance was observed when using methods that account for uncertainty quantification. This is not a general statement, as there may be instances where the reverse is possible.",
+      "source_id": "rand_ai_ssa2024",
+      "chunk_id": "sec5_p6",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "BNNs are preferable to SNNs when uncertainty is a necessary output, when there are limited available training data, and when the detection of outlier predictions is important to flag for an operator.",
+      "evidence": "BNNs are preferable to SNNs when uncertainty is a necessary output, when there are limited available training data, and when the detection of outlier predictions is important to flag for an operator.",
+      "source_id": "rand_ai_ssa2024",
+      "chunk_id": "sec5_p6",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "Uncertainty quantification has demonstrated potential to improve decision-making, risk management, model selection and optimization, and robustness.",
+      "evidence": "Uncertainty quantification has the potential to improve decisionmaking, risk management, model selection and optimization, and robustness.",
+      "source_id": "rand_ai_ssa2024",
+      "chunk_id": "sec5_p10",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "Quantification of risk and uncertainty tolerance provides operators with the capability to provide feedback to AI/ML models by setting thresholds based on acceptable risk.",
+      "evidence": "Quantification of risk and uncertainty tolerance provides an operator or analyst with the capability to provide feedback to an AI/ML model by setting thresholds based on acceptable risk.",
+      "source_id": "rand_ai_ssa2024",
+      "chunk_id": "sec5_p5",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "In an elliptical screening tool case study, uncertainty quantification from BNNs enabled characterization of postprocessing classifier performance based on operator-set acceptable risk thresholds.",
+      "evidence": "In the first case study, developing an elliptical screening tool, the authors explored how an SDA operator or analyst might leverage the uncertainty quantification produced by a BNN. They characterized the performance of the postprocessing classifier based on the threshold of acceptable risk set by an operator or analyst. In doing so, significant variance was found for the classification of both true positives and false negatives. This performance optimization curve provides an operator with insight into the model discrimination performance versus optimal models, threshold selection, and trade-offs between operating conditions.",
+      "source_id": "rand_ai_ssa2024",
+      "chunk_id": "sec5_p5",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "Using uncertainty quantification algorithms may be challenging due to the complexities of these models and their computational overhead requirements.",
+      "evidence": "However, using these algorithms may be challenging because of the complexities of these models and their computational overhead requirements. AI/ML practitioners within DoD at large should be knowledgeable of these trade-offs when considering the development of AI/ML tools.",
+      "source_id": "rand_ai_ssa2024",
+      "chunk_id": "sec5_p10",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "The explainability paradox inherent in many machine learning approaches poses significant concerns for operational implementation since conjunction assessment decisions require clear justification and understanding of underlying reasons for each outcome.",
+      "evidence": "Additionally, the 'explainability' paradox inherent in many machine learning approaches posed significant concerns for operational implementation, as conjunction assessment decisions require clear justification and understanding of the underlying reasons and factors for each outcome.",
+      "source_id": "mashiku2025",
+      "chunk_id": "sec5_p1",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "DoD should continue to consider the value of uncertainty quantification methodologies when developing and deploying operational AI/ML tools.",
+      "evidence": "DoD should continue to consider the value of uncertainty quantification methodologies when developing and deploying operational AI/ML tools.",
+      "source_id": "rand_ai_ssa2024",
+      "chunk_id": "sec5_p10",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "SDA operators should be trained to use the uncertainty quantification provided by these methodologies.",
+      "evidence": "SDA operators should be trained to use the uncertainty quantification provided by these methodologies.",
+      "source_id": "rand_ai_ssa2024",
+      "chunk_id": "sec0_p5",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "Significant work remains before ML methods can be considered for operational deployment, including overcoming stochastic data limitations, improving model interpretability, and demonstrating reliable performance validation across the full spectrum of operational conjunction scenarios.",
+      "evidence": "This research highlighted that while machine learning techniques showed theoretical promise for enhancing conjunction assessment capabilities, significant additional work would be needed to overcome stochastic data limitations, improve model interpretability, and demonstrate reliable performance via validation across the full spectrum of operational conjunction scenarios before these methods could be considered for operational deployment.",
+      "source_id": "mashiku2025",
+      "chunk_id": "sec5_p1",
+      "confidence": "high",
+      "notes": ""
+    }
+  ],
+  "validation": {
+    "valid": true,
+    "issues": [],
+    "row_count": 14
+  },
+  "metadata": {
+    "thread_id": "seed_thread_01",
+    "generated_at": "2026-03-02T08:45:46.334437+00:00",
+    "model": "claude-sonnet-4-5-20250929"
+  },
+  "cache_key": "73f3b0cb9326369f",
+  "cached_at": "2026-03-02T08:45:46.334463+00:00"
+}

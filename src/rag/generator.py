@@ -35,7 +35,7 @@ def get_client() -> anthropic.Anthropic:
             "Set it with: set ANTHROPIC_API_KEY=your-key-here (Windows) "
             "or export ANTHROPIC_API_KEY=your-key-here (Linux/Mac)"
         )
-    return anthropic.Anthropic(api_key=api_key)
+    return anthropic.Anthropic(api_key=api_key, timeout=30.0, max_retries=2)
 
 
 def generate(
@@ -43,6 +43,7 @@ def generate(
     chunks: list[dict],
     model: Optional[str] = None,
     max_tokens: int = 2048,
+    include_gaps: bool = False,
 ) -> dict:
     """Generate a citation-backed answer from retrieved chunks.
 
@@ -51,6 +52,7 @@ def generate(
         chunks: Ranked list of chunk dicts from retriever/reranker.
         model: Anthropic model name. Defaults to DEFAULT_MODEL.
         max_tokens: Maximum tokens in the response.
+        include_gaps: If True, append gap finder instructions to system prompt.
 
     Returns:
         Dict with keys:
@@ -62,7 +64,7 @@ def generate(
     client = get_client()
     model = model or os.environ.get("ANTHROPIC_MODEL", DEFAULT_MODEL)
 
-    system_prompt = get_system_prompt()
+    system_prompt = get_system_prompt(include_gaps=include_gaps)
     messages = build_prompt(query, chunks)
 
     response = client.messages.create(

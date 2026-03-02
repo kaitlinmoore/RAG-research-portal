@@ -29,6 +29,19 @@ once, formatted as: source_id — Title (Year).\
 
 PROMPT_VERSION = "v1.0"
 
+GAP_FINDER_SUFFIX = """
+
+After your answer, add a section titled "EVIDENCE GAPS" that:
+1. Identifies 2-3 specific aspects of the question that the retrieved evidence
+   does NOT adequately cover.
+2. For each gap, suggest a follow-up search query that might find relevant evidence.
+3. If the evidence fully covers the question, state "No significant gaps identified."
+
+Format:
+## EVIDENCE GAPS
+- **[Gap description]** → Suggested query: "[follow-up query]"
+"""
+
 
 def build_prompt(query: str, chunks: list[dict]) -> list[dict]:
     """Build the messages list for the Anthropic API.
@@ -70,9 +83,12 @@ Answer the question using the evidence above. Cite every claim using \
     return [{"role": "user", "content": user_content}]
 
 
-def get_system_prompt() -> str:
-    """Return the system prompt string."""
-    return SYSTEM_PROMPT
+def get_system_prompt(include_gaps: bool = False) -> str:
+    """Return the system prompt string, optionally with gap finder suffix."""
+    prompt = SYSTEM_PROMPT
+    if include_gaps:
+        prompt += GAP_FINDER_SUFFIX
+    return prompt
 
 
 def get_prompt_version() -> str:

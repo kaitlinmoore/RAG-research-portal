@@ -1,0 +1,105 @@
+{
+  "type": "evidence_table",
+  "rows": [
+    {
+      "claim": "Research analyzing over 450,000 Conjunction Data Messages identified fundamental challenges with operational AI/ML use including data scarcity, stochastic orbital mechanics, model interpretability requirements, and the need for explainable AI meeting high-reliability standards.",
+      "evidence": "The research employed multiple Artificial Intelligence/Machine Learning (AI/ML) methodologies including supervised learning, unsupervised clustering techniques, Fuzzy Inference Systems, Deep Neural Networks, and Long Short-Term Memory models to identify risk-associated patterns during a conjunction as well as to analyze the temporal evolution of defined risk parameters. Statistical and information theory parameters were investigated beyond traditional probability of collision calculations, developing adaptive models for varying CDM availability, and implementing sophisticated time-series analysis approaches. The study identified fundamental challenges with the operational use of AI/ML for conjunction risk assessment, including data scarcity, the stochastic nature of orbital mechanics, model interpretability requirements, and the critical need for explainable AI approaches that can meet the high-reliability standards essential for space operations decision-making.",
+      "source_id": "mashiku2025",
+      "chunk_id": "sec0_p1",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "Fully automated AI/ML decision systems are not currently viable for operational risk assessment.",
+      "evidence": "While fully automated AI/ML decision systems are not currently viable for operational risk assessment, hybrid approaches combining traditional physics-based methods with targeted machine learning components may offer incremental improvements.",
+      "source_id": "mashiku2025",
+      "chunk_id": "sec6_p3",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "Even under normal operating conditions, there is far more demand on the Space Surveillance Network than availability, requiring complex prioritization of observations.",
+      "evidence": "Even under normal operating conditions, there is far more demand on the SSN than availability. SDA tasking must account for the relative priority of observation, so analysts must coordinate observation collection according to sometimes conflicting data needs, priorities, and sensor suitability and availability.",
+      "source_id": "rand_ai_ssa2024",
+      "chunk_id": "sec1.1.3_p2",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "Operational complexity is compounded by sheer data volume, complexities of orbital mechanics and space operations, and accelerated operations tempo required in crisis or conflict.",
+      "evidence": "In addition to these varying priorities, the sheer data volume, the complexities of orbital mechanics and space operations, and the accelerated operations tempo required to conduct the SDA mission in a crisis or conflict present significant challenges to the orbital analyst (OA).",
+      "source_id": "rand_ai_ssa2024",
+      "chunk_id": "sec1.1.3_p2",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "The impact of AI/ML tools on overall SDA mission success is not well understood, and this lack of understanding is a barrier to planning and optimizing tool integration.",
+      "evidence": "Although AI/ML tools have the potential to help meet these SDA challenges, the impact of these tools on the overall success of the SDA mission is not well understood, and this lack of understanding is a barrier to plan for and optimize the integration of these tools.",
+      "source_id": "rand_ai_ssa2024",
+      "chunk_id": "sec0_p2",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "Hybrid approaches combining traditional physics-based methods with targeted ML components may offer incremental improvements for tasks such as identifying which conjunction events deserve analyst attention, rather than performing risk assessments.",
+      "evidence": "While fully automated AI/ML decision systems are not currently viable for operational risk assessment, hybrid approaches combining traditional physics-based methods with targeted machine learning components may offer incremental improvements. As large constellations continue to launch, the need for more sophisticated automation becomes increasingly urgent, but such automation must maintain the high reliability standards required for space operations. Such as identifying which conjunction events deserve analyst attention, rather than performing risk assessments and conclusive early decision-support for mitigative maneuver decisions.",
+      "source_id": "mashiku2025",
+      "chunk_id": "sec6_p3",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "The space object catalog is expected to grow to 30,000 to 50,000 regularly maintained tracked objects.",
+      "evidence": "With tracking improvements and the launch of additional satellites, one can expect a regularly maintained space catalog of perhaps 30,000 to 50,000 objects.",
+      "source_id": "nasa_ca_handbook2023",
+      "chunk_id": "sec15.1_p3",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "The need for more sophisticated automation becomes increasingly urgent as large constellations continue to launch.",
+      "evidence": "As large constellations continue to launch, the need for more sophisticated automation becomes increasingly urgent, but such automation must maintain the high reliability standards required for space operations.",
+      "source_id": "mashiku2025",
+      "chunk_id": "sec6_p3",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "Automation must maintain the high reliability standards required for space operations, creating tension between operational necessity and technical capability.",
+      "evidence": "As large constellations continue to launch, the need for more sophisticated automation becomes increasingly urgent, but such automation must maintain the high reliability standards required for space operations.",
+      "source_id": "mashiku2025",
+      "chunk_id": "sec6_p3",
+      "confidence": "medium",
+      "notes": "The evidence directly states the reliability requirement, but the characterization of 'tension between operational necessity and technical capability' is an inference from combining this with the statement about urgency and the earlier statement about non-viability of fully automated systems."
+    },
+    {
+      "claim": "ML is restricted to screening rather than decision-making functions, representing a significant limitation on its operational role.",
+      "evidence": "Such as identifying which conjunction events deserve analyst attention, rather than performing risk assessments and conclusive early decision-support for mitigative maneuver decisions. This tiered approach could help address the scaling challenges as the space object catalog grows dramatically in the coming years.",
+      "source_id": "mashiku2025",
+      "chunk_id": "sec6_p3",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "claim": "Research sought to evaluate whether AI/ML could enable rapid, reliable decision-making for collision avoidance within the critical 7-day identification window.",
+      "evidence": "NASA's Conjunction Assessment Risk Analysis (CARA) program has conducted comprehensive research utilizing over 450,000 Conjunction Data Messages (CDM) from 2015-2018 to evaluate whether artificial intelligence and machine learning capabilities could enhance or augment collision avoidance decision making by performing conjunction assessment with increased speed or certainty using CDM data available early in event timelines. In essence, can these approaches enable rapid, reliable decision-making for collision avoidance within the critical 7-day identification window, incorporating expected or predicted information from anticipated new observations that could provide a bounded solution space?",
+      "source_id": "mashiku2025",
+      "chunk_id": "sec0_p1",
+      "confidence": "high",
+      "notes": ""
+    }
+  ],
+  "validation": {
+    "valid": true,
+    "issues": [],
+    "row_count": 11
+  },
+  "metadata": {
+    "thread_id": "seed_thread_03",
+    "generated_at": "2026-03-02T08:48:07.408283+00:00",
+    "model": "claude-sonnet-4-5-20250929"
+  },
+  "cache_key": "974d3a9702528dec",
+  "cached_at": "2026-03-02T08:48:07.408300+00:00"
+}

@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(\"C:\\\\Python Virtual Environments\\\\research_rag.venv\\\\Scripts\\\\python.exe\" -m src.ingest.ingest --chunks-dir data/processed --manifest data_manifest.csv)"
+    ]
+  }
+}

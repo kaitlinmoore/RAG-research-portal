@@ -34,6 +34,38 @@ python -m src.rag.query "What are the main failure modes of ML for collision avo
 
 > **Note for graders:** Download `grader.env` from Canvas and place it in the repository root directory (next to `README.md`). The pipeline loads it automatically. No renaming or environment variable setup required.
 
+## Phase 3: Interactive Portal
+
+### Run the Portal
+
+```bash
+streamlit run src/app/Ask_Questions.py
+```
+
+The portal opens in your browser with four pages:
+
+- **Ask Questions** -- Query interface with metadata filtering (year, source type, tags), citation cards, and evidence gap finder with follow-up query buttons
+- **Threads** -- Save queries as research threads, view evidence gaps, generate evidence tables and synthesis memos, export as CSV/Markdown/PDF
+- **Evaluation** -- Dashboard showing Phase 2 metrics with interactive Plotly charts and per-query drill-down
+- **About** -- Corpus details, architecture overview, citation format guide, tag scheme documentation
+
+### Offline / Demo Mode
+
+The portal works without an API key using pre-cached results. The cache is already seeded and shipped with the repo:
+
+```bash
+# No API key needed -- cached queries are served automatically
+streamlit run src/app/Ask_Questions.py
+```
+
+To re-seed the cache (requires API key):
+
+```bash
+python -m scripts.seed_cache
+```
+
+This caches 12 queries (7 unfiltered + 5 with metadata filters), 3 research threads, and 6 artifacts (evidence tables + synthesis memos).
+
 ## What This Does
 
 Given a natural-language research question, the pipeline:
@@ -51,7 +83,7 @@ Every citation resolves to a real chunk in the corpus. The system refuses to inv
 
 Sources include ESA conjunction data studies, NASA handbooks, RAND analyses of AI for SSA, ML competition results, survey papers on orbit prediction and RSO characterization, and domain-specific work on uncertainty quantification, Kessler syndrome modeling, and deep learning for radar-based debris detection.
 
-All papers were manually chunked into structured Markdown following a consistent protocol (section headers, paragraph-level chunk IDs), then embedded and stored in ChromaDB.
+All papers were manually chunked into structured Markdown following a consistent protocol (section headers, paragraph-level chunk IDs), then embedded and stored in ChromaDB. Each chunk carries 11 boolean tag fields across three axes (domain application, ML limitation theme, content role) for metadata filtering.
 
 ## Project Structure
 
@@ -60,7 +92,10 @@ All papers were manually chunked into structured Markdown following a consistent
 ├── data/
 │   ├── raw/                    # Original PDFs (20 papers)
 │   ├── processed/              # Chunked Markdown files (20 papers, 1,628 chunks)
-│   └── chromadb/               # Vector store
+│   ├── chromadb/               # Vector store
+│   └── cache/                  # Cached query results and artifacts (for offline mode)
+│       ├── queries/
+│       └── artifacts/
 ├── src/
 │   ├── ingest/
 │   │   ├── parser.py           # Parses chunked Markdown into structured dicts
@@ -68,18 +103,42 @@ All papers were manually chunked into structured Markdown following a consistent
 │   ├── rag/
 │   │   ├── retriever.py        # Semantic search with optional metadata filters
 │   │   ├── reranker.py         # Cross-encoder reranking
-│   │   ├── prompts.py          # Citation-enforcing prompt templates (versioned)
+│   │   ├── prompts.py          # Citation-enforcing prompt templates + gap finder
 │   │   ├── generator.py        # Anthropic API generation
 │   │   ├── logger.py           # Structured JSONL logging
 │   │   ├── pipeline.py         # Orchestrator: retrieve -> rerank -> generate -> log
 │   │   └── query.py            # CLI entry point
-│   └── eval/
-│       ├── queries.json        # 25 evaluation queries (direct, synthesis, edge-case)
-│       ├── scorer.py           # LLM-as-judge (groundedness + citation correctness)
-│       ├── run_eval.py         # Evaluation runner (both modes, incremental output)
-│       └── score_completeness.py  # Completeness scoring + mechanical metrics
+│   ├── cache/
+│   │   └── manager.py          # Hash-based JSON cache for queries and artifacts
+│   ├── artifacts/
+│   │   ├── generator.py        # Evidence table + synthesis memo generation
+│   │   └── prompts.py          # Artifact prompt templates
+│   ├── threads/
+│   │   └── manager.py          # Research thread persistence (save/load/delete)
+│   ├── eval/
+│   │   ├── queries.json        # 25 evaluation queries (direct, synthesis, edge-case)
+│   │   ├── scorer.py           # LLM-as-judge (groundedness + citation correctness)
+│   │   ├── run_eval.py         # Evaluation runner (both modes, incremental output)
+│   │   └── score_completeness.py  # Completeness scoring + mechanical metrics
+│   └── app/                    # Streamlit portal (Phase 3)
+│       ├── Ask_Questions.py    # Main entry point + query interface
+│       ├── pages/
+│       │   ├── 1_Threads.py    # Thread viewer + artifact generation + export
+│       │   ├── 2_Evaluation.py # Evaluation dashboard with Plotly charts
+│       │   └── 3_About.py      # Corpus and architecture info
+│       └── components/
+│           ├── citation_card.py  # Expandable citation cards
+│           ├── filters.py        # Sidebar metadata filters
+│           ├── mode_banner.py    # Live/offline mode indicator
+│           └── styles.py         # Shared CSS (buttons, sidebar, expanders)
+├── scripts/
+│   └── seed_cache.py           # Populate cache for offline mode
+├── outputs/
+│   ├── threads/                # Saved research threads (JSON)
+│   └── artifacts/              # Exported artifacts
 ├── logs/                       # Query logs and evaluation results (JSONL)
-├── data_manifest.csv           # Corpus metadata (20 sources)
+├── .streamlit/config.toml      # Streamlit theme config
+├── data_manifest.csv           # Corpus metadata (20 sources with tags)
 ├── requirements.txt            # Pinned dependencies
 ```
 
@@ -144,6 +203,8 @@ Key findings:
 
 The full evaluation report (query set design, metrics, results, and failure analysis) is located at [`report/PRP Phase 2 Evaluation Report - Kaitlin Moore.pdf`](report/PRP%20Phase%202%20Evaluation%20Report%20-%20Kaitlin%20Moore.pdf).
 
+The Phase 3 report (portal design, enhancement rationale, and demo walkthrough) is located at [`report/PRP Phase 3 Report - Kaitlin Moore.pdf`](report/PRP%20Phase%203%20Report%20-%20Kaitlin%20Moore.pdf).
+
 ## Architecture
 
 | Component | Choice | Rationale |
@@ -154,6 +215,7 @@ The full evaluation report (query set design, metrics, results, and failure anal
 | Generator | Claude Sonnet 4.5 (Anthropic API) | Cost-effective for iterative evaluation runs |
 | Judge | Claude Opus 4.6 | Stronger model judges weaker to reduce shared-bias |
 | Chunking | Manual with structured IDs | Image-based PDFs made automated extraction unreliable |
+| Tag storage | Boolean metadata fields | Each tag is a boolean field (e.g., `tag_data_quality: True`) queried with `$eq`; avoids substring-matching pitfalls |
 
 ## Dependencies
 
@@ -162,6 +224,10 @@ The full evaluation report (query set design, metrics, results, and failure anal
 - `sentence-transformers` -- embedding and cross-encoder models
 - `anthropic` -- LLM generation and scoring
 - `python-dotenv` -- environment variable management
+- `streamlit` -- interactive portal UI
+- `pandas` -- data handling for evaluation dashboard
+- `plotly` -- interactive charts
+- `fpdf2` -- PDF export for artifacts
 
 Install with:
 ```bash
